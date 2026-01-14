@@ -164,8 +164,8 @@ const Home: React.FC = () => {
                   ].map((item, i) => (
                     <div key={i} className="flex items-center space-x-4 pb-4 last:pb-0 fade-in-stagger hover-lift group">
                       <div className="bg-white/10 px-4 py-2 rounded-xl text-center group-hover:bg-white/20 transition-all">
-                        <div className="text-lg font-black">{item.date.split(' ')[0]}</div>
-                        <div className="text-[10px] font-bold uppercase">{item.date.split(' ')[1]}</div>
+                        <div className="text-lg font-black text-slate-900">{item.date.split(' ')[0]}</div>
+                        <div className="text-[10px] font-bold uppercase text-slate-900">{item.date.split(' ')[1]}</div>
                       </div>
                       <div className="text-sm font-semibold flex-1 text-slate-900">{item.event}</div>
                       <div className="w-12 h-12 rounded-lg overflow-hidden">
