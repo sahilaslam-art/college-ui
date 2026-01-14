@@ -196,8 +196,8 @@ const Home: React.FC = () => {
                             <span className="text-white font-bold text-xs">View</span>
                           </div>
                         </div>
-                        <h5 className="font-bold text-white text-sm mb-1">{event.title}</h5>
-                        <p className="text-white/80 text-xs font-semibold">{event.date}</p>
+                        <h5 className="font-bold text-slate-900 text-sm mb-1">{event.title}</h5>
+                        <p className="text-slate-700 text-xs font-semibold">{event.date}</p>
                       </div>
                     ))}
                   </div>
