@@ -1,0 +1,468 @@
+/* ==================== CURSOR EFFECTS ==================== */
+.cursor-glow {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #14b8a6;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.8);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #14b8a6;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+}
+
+/* ==================== MAGNETIC CURSOR EFFECT ==================== */
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== HOVER ANIMATIONS ==================== */
+@keyframes hoverLift {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shadowGrow {
+  0% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  animation: hoverLift 0.3s ease forwards;
+  animation: shadowGrow 0.3s ease forwards;
+}
+
+/* ==================== GLOW EFFECTS ==================== */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(20, 184, 166, 0.5),
+                0 0 15px rgba(20, 184, 166, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.8),
+                0 0 30px rgba(20, 184, 166, 0.6);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ==================== LIGHT EFFECTS ==================== */
+@keyframes lightFlash {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.light-flash {
+  animation: lightFlash 3s ease-in-out infinite;
+}
+
+@keyframes lightBeam {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.light-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: lightBeam 2s infinite;
+  pointer-events: none;
+}
+
+/* ==================== 3D EFFECTS ==================== */
+@keyframes float3D {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(10deg) translateZ(0px);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateZ(20px);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+}
+
+.float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+/* ==================== MAGIC TEXT EFFECTS ==================== */
+@keyframes magicShimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.magic-text {
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #0d9488,
+    #06d6d0,
+    #14b8a6
+  );
+  background-size: 1000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: magicShimmer 3s linear infinite;
+}
+
+/* ==================== PARTICLE EFFECT ==================== */
+@keyframes particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty))) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #14b8a6;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle 1s ease-out forwards;
+}
+
+/* ==================== REVEAL ANIMATIONS ==================== */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-up {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.reveal-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.reveal-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* ==================== BUTTON ANIMATIONS ==================== */
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.button-pulse:hover {
+  animation: buttonPulse 0.5s ease-in-out;
+}
+
+@keyframes shimmerButton {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-button {
+  background-size: 1000px 100%;
+  animation: shimmerButton 2s infinite;
+}
+
+/* ==================== CARD ANIMATIONS ==================== */
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  100% {
+    transform: translateY(-10px) rotateX(5deg);
+  }
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(20, 184, 166, 0.2),
+              0 0 30px rgba(20, 184, 166, 0.1);
+}
+
+/* ==================== BORDER ANIMATION ==================== */
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.border-animate {
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #0d9488,
+    #06d6d0,
+    #14b8a6
+  );
+  background-size: 200% 200%;
+  animation: borderFlow 3s ease infinite;
+  background-clip: padding-box;
+}
+
+/* ==================== FADE IN STAGGER ==================== */
+@keyframes fadeInStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-stagger {
+  animation: fadeInStagger 0.6s ease-out;
+}
+
+.fade-in-stagger:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.fade-in-stagger:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fade-in-stagger:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.fade-in-stagger:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.fade-in-stagger:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.fade-in-stagger:nth-child(n+6) {
+  animation-delay: calc(0.1s * (var(--index, 6)));
+}
+
+/* ==================== GRADIENT ANIMATION ==================== */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background: linear-gradient(
+    -45deg,
+    #14b8a6,
+    #0d9488,
+    #06d6d0,
+    #14b8a6
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ==================== ROTATE EFFECT ==================== */
+@keyframes rotateFast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-fast {
+  animation: rotateFast 2s linear infinite;
+}
+
+@keyframes rotateSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-slow {
+  animation: rotateSlow 8s linear infinite;
+}
+
+/* ==================== SCALE ANIMATION ==================== */
+@keyframes scalePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.scale-pulse {
+  animation: scalePulse 2s ease-in-out infinite;
+}
+
+/* ==================== BLUR ANIMATION ==================== */
+@keyframes blurPulse {
+  0%, 100% {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(5px);
+  }
+}
+
+.blur-pulse {
+  animation: blurPulse 3s ease-in-out infinite;
+}
+
+/* ==================== RAINBOW TEXT ==================== */
+@keyframes rainbowShift {
+  0% {
+    color: #14b8a6;
+  }
+  25% {
+    color: #06d6d0;
+  }
+  50% {
+    color: #0d9488;
+  }
+  75% {
+    color: #117a65;
+  }
+  100% {
+    color: #14b8a6;
+  }
+}
+
+.rainbow-text {
+  animation: rainbowShift 3s ease infinite;
+}
+
+/* ==================== INFINITY SCROLL ==================== */
+@keyframes infinityMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.infinity-scroll {
+  animation: infinityMove 20s linear infinite;
+}

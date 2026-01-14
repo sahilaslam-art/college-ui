@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import './styles/animations.css';
+import { CursorProvider } from './components/CursorProvider';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -20,10 +22,11 @@ import Contact from './pages/Contact';
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
+    <CursorProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -40,10 +43,11 @@ const App: React.FC = () => {
             <Route path="/students" element={<Students />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </CursorProvider>
   );
 };
 

@@ -80,13 +80,13 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group shrink-0">
-            <div className="bg-teal-600 p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300">
-              <Microscope className="text-white w-5 h-5 md:w-6 md:h-6" />
+          <Link to="/" className="flex items-center space-x-2 group shrink-0 magnetic-btn">
+            <div className="bg-teal-600 p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300 scale-pulse">
+              <Microscope className="text-white w-5 h-5 md:w-6 md:h-6 rotate-slow" />
             </div>
             <div className="flex flex-col md:flex-row md:items-baseline">
-              <span className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">Pharma</span>
-              <span className="text-xl md:text-2xl font-light text-teal-600 tracking-tight">College</span>
+              <span className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight magic-text">Pharma</span>
+              <span className="text-xl md:text-2xl font-light text-teal-600 tracking-tight rainbow-text">College</span>
             </div>
           </Link>
 
