@@ -126,7 +126,7 @@ const Home: React.FC = () => {
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 magic-text">Latest Updates</h2>
               <p className="text-slate-500">Discover the recent happenings and upcoming milestones.</p>
             </div>
-            <Link to="/media/gallery" className="hidden sm:inline-flex items-center px-6 py-2 bg-slate-100 text-slate-900 rounded-full font-bold hover:bg-teal-600 hover:text-white transition-all magnetic-btn hover-lift">
+            <Link to="/media/gallery" className="hidden sm:inline-flex items-center px-6 py-2 bg-teal-100 text-teal-700 rounded-full font-bold hover:bg-teal-600 hover:text-white transition-all magnetic-btn hover-lift">
               View Newsroom
             </Link>
           </div>
