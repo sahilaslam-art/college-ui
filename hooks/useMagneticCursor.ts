@@ -5,13 +5,15 @@ interface CursorPosition {
   y: number;
 }
 
-export const useMagneticCursor = () => {
+export const useMagneticCursor = (enabled: boolean = false) => {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef<CursorPosition>({ x: 0, y: 0 });
   const targetRef = useRef<CursorPosition>({ x: 0, y: 0 });
 
   useEffect(() => {
+    if (!enabled) return;
+
     // Create cursor elements
     const dot = document.createElement('div');
     dot.className = 'cursor-dot';
@@ -100,9 +102,9 @@ export const useMagneticCursor = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseover', handleElementHover);
       document.removeEventListener('mouseleave', handleElementLeave);
-      document.body.removeChild(dot);
-      document.body.removeChild(ring);
+      if (dotRef.current) document.body.removeChild(dot);
+      if (ringRef.current) document.body.removeChild(ring);
       document.body.style.cursor = 'auto';
     };
-  }, []);
+  }, [enabled]);
 };

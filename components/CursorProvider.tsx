@@ -8,7 +8,7 @@ interface CursorProviderProps {
 }
 
 export const CursorProvider: React.FC<CursorProviderProps> = ({ children }) => {
-  useMagneticCursor();
+  useMagneticCursor(false); // Cursor effect disabled
   useParticles();
   useScrollReveal();
 
