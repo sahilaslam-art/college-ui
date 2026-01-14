@@ -220,13 +220,13 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <div className="w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight relative z-10">Ready to Shape the Future of Medicine?</h2>
-            <p className="text-teal-100 text-xl mb-12 max-w-2xl mx-auto font-light relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight relative z-10 text-slate-900">Ready to Shape the Future of Medicine?</h2>
+            <p className="text-slate-700 text-xl mb-12 max-w-2xl mx-auto font-light relative z-10">
               Applications for the 2024 academic cycle are closing soon. Take the first step toward a rewarding career in the pharmaceutical sciences.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
               <Link to="/academics/admission" className="px-12 py-5 bg-white text-teal-600 font-bold rounded-full hover:bg-teal-50 transition-all shadow-2xl magnetic-btn hover-lift button-pulse">Begin Application</Link>
-              <Link to="/contact" className="px-12 py-5 border-2 border-white/50 text-white font-bold rounded-full hover:bg-white/10 transition-all magnetic-btn hover-lift button-pulse">Request Information</Link>
+              <Link to="/contact" className="px-12 py-5 bg-teal-600 text-white font-bold rounded-full hover:bg-teal-500 transition-all shadow-2xl magnetic-btn hover-lift button-pulse">Request Information</Link>
             </div>
           </div>
         </div>
