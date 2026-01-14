@@ -153,7 +153,7 @@ const Home: React.FC = () => {
               <div className="bg-gradient-animate rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden card-hover glow-pulse">
                 <div className="light-beam opacity-20"></div>
                 <div className="absolute top-0 right-0 p-8 opacity-20"><Calendar className="w-32 h-32 rotate-slow" /></div>
-                <h3 className="text-2xl font-bold mb-8 relative z-10">Upcoming Events</h3>
+                <h3 className="text-2xl font-bold mb-8 relative z-10 text-slate-900">Upcoming Events</h3>
                 
                 {/* Event List */}
                 <div className="space-y-6 relative z-10 mb-8 pb-8 border-b border-white/20">
