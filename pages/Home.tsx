@@ -167,7 +167,7 @@ const Home: React.FC = () => {
                         <div className="text-lg font-black">{item.date.split(' ')[0]}</div>
                         <div className="text-[10px] font-bold uppercase">{item.date.split(' ')[1]}</div>
                       </div>
-                      <div className="text-sm font-semibold flex-1">{item.event}</div>
+                      <div className="text-sm font-semibold flex-1 text-slate-900">{item.event}</div>
                       <div className="w-12 h-12 rounded-lg overflow-hidden">
                         <img src={`https://picsum.photos/id/${item.img}/50/50`} alt={item.event} className="w-full h-full object-cover" />
                       </div>
