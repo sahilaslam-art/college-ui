@@ -16,6 +16,17 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
   }, [location]);
@@ -65,7 +76,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/90 backdrop-blur-sm py-4'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled || isOpen ? 'bg-white shadow-md py-2' : 'bg-white/90 backdrop-blur-sm py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -145,7 +156,7 @@ const Navbar: React.FC = () => {
             </Link>
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="p-2.5 bg-slate-900 text-white rounded-xl shadow-md"
+              className="p-2.5 bg-slate-900 text-white rounded-xl shadow-md z-[110]"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -155,8 +166,8 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Nav Dropdown */}
-      <div className={`lg:hidden transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="px-4 pt-4 pb-8 space-y-2 bg-white border-t border-slate-50 shadow-inner">
+      <div className={`lg:hidden transition-all duration-300 ease-in-out fixed inset-x-0 top-[72px] bg-white border-t border-slate-100 shadow-2xl overflow-y-auto ${isOpen ? 'max-h-[calc(100vh-72px)] opacity-100 pointer-events-auto translate-y-0' : 'max-h-0 opacity-0 pointer-events-none -translate-y-2'}`}>
+        <div className="px-4 pt-4 pb-20 space-y-2">
           <div className="grid grid-cols-1 gap-1">
             {navLinks.map((link) => (
               <div key={link.name}>
@@ -165,12 +176,13 @@ const Navbar: React.FC = () => {
                     <div className="px-4 py-2 text-[10px] font-black text-teal-600 uppercase tracking-[0.2em]">
                       {link.name}
                     </div>
-                    <div className="space-y-1 mt-1">
+                    <div className="grid grid-cols-1 gap-1 mt-1">
                       {link.children.map((child) => (
                         <Link
                           key={child.name}
                           to={child.path}
-                          className={`block px-6 py-3 text-sm font-semibold rounded-xl ${location.pathname === child.path ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-6 py-3 text-sm font-semibold rounded-xl transition-colors ${location.pathname === child.path ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-50'}`}
                         >
                           {child.name}
                         </Link>
@@ -180,7 +192,8 @@ const Navbar: React.FC = () => {
                 ) : (
                   <Link
                     to={link.path}
-                    className={`block px-4 py-4 text-sm font-bold rounded-xl uppercase tracking-widest ${location.pathname === link.path ? 'bg-teal-600 text-white' : 'text-slate-900 hover:bg-slate-50'}`}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-4 text-sm font-bold rounded-xl uppercase tracking-widest transition-colors ${location.pathname === link.path ? 'bg-teal-600 text-white shadow-md' : 'text-slate-900 hover:bg-slate-50'}`}
                   >
                     {link.name}
                   </Link>
@@ -188,8 +201,12 @@ const Navbar: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="pt-4 border-t border-slate-50 mt-4">
-            <Link to="/academics/admission" className="block w-full text-center py-4 bg-teal-600 text-white rounded-2xl font-bold shadow-xl shadow-teal-600/20">
+          <div className="pt-6 border-t border-slate-50 mt-4">
+            <Link 
+              to="/academics/admission" 
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center py-4 bg-teal-600 text-white rounded-2xl font-bold shadow-xl shadow-teal-600/20 active:scale-95 transition-transform"
+            >
               Apply for Admission 2024
             </Link>
           </div>
