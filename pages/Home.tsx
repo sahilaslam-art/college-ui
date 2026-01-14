@@ -149,28 +149,62 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-gradient-animate rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden card-hover glow-pulse" data-reveal="true">
-              <div className="light-beam opacity-20"></div>
-              <div className="absolute top-0 right-0 p-8 opacity-20"><Calendar className="w-32 h-32 rotate-slow" /></div>
-              <h3 className="text-2xl font-bold mb-8 relative z-10">Upcoming Events</h3>
-              <div className="space-y-6 relative z-10">
-                {[
-                  { date: '12 Nov', event: 'International Pharmacy Summit 2023' },
-                  { date: '15 Nov', event: 'White Coat Ceremony: Class of 2024' },
-                  { date: '20 Nov', event: 'Clinical Trial Ethics Workshop' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center space-x-4 border-b border-white/10 pb-6 last:border-0 fade-in-stagger">
-                    <div className="bg-white/10 px-4 py-2 rounded-xl text-center">
-                      <div className="text-lg font-black">{item.date.split(' ')[0]}</div>
-                      <div className="text-[10px] font-bold uppercase">{item.date.split(' ')[1]}</div>
+            <div className="space-y-6" data-reveal="true">
+              <div className="bg-gradient-animate rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden card-hover glow-pulse">
+                <div className="light-beam opacity-20"></div>
+                <div className="absolute top-0 right-0 p-8 opacity-20"><Calendar className="w-32 h-32 rotate-slow" /></div>
+                <h3 className="text-2xl font-bold mb-8 relative z-10">Upcoming Events</h3>
+                <div className="space-y-6 relative z-10">
+                  {[
+                    { date: '12 Nov', event: 'International Pharmacy Summit 2023', img: '101' },
+                    { date: '15 Nov', event: 'White Coat Ceremony: Class of 2024', img: '102' },
+                    { date: '20 Nov', event: 'Clinical Trial Ethics Workshop', img: '103' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center space-x-4 border-b border-white/10 pb-6 last:border-0 fade-in-stagger hover-lift group">
+                      <div className="bg-white/10 px-4 py-2 rounded-xl text-center group-hover:bg-white/20 transition-all">
+                        <div className="text-lg font-black">{item.date.split(' ')[0]}</div>
+                        <div className="text-[10px] font-bold uppercase">{item.date.split(' ')[1]}</div>
+                      </div>
+                      <div className="text-sm font-semibold flex-1">{item.event}</div>
+                      <div className="w-12 h-12 rounded-lg overflow-hidden">
+                        <img src={`https://picsum.photos/id/${item.img}/50/50`} alt={item.event} className="w-full h-full object-cover" />
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold">{item.event}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-              <button className="mt-10 w-full py-4 bg-white text-teal-600 font-bold rounded-2xl hover:bg-teal-50 transition-colors shadow-xl magnetic-btn hover-lift">
-                Full Calendar
-              </button>
+              
+              {/* Full Calendar View */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg card-hover" data-reveal="true">
+                <h4 className="text-2xl font-bold text-slate-900 mb-6">Full Event Calendar</h4>
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { title: 'Summit 2023', date: 'Nov 12', img: '101', desc: 'Pharmacy Innovation' },
+                    { title: 'White Coat', date: 'Nov 15', img: '102', desc: 'Ceremony & Oath' },
+                    { title: 'Ethics Workshop', date: 'Nov 20', img: '103', desc: 'Clinical Trials' },
+                  ].map((event, i) => (
+                    <div key={i} className="group cursor-pointer card-hover">
+                      <div className="relative h-40 rounded-2xl overflow-hidden mb-4 bg-slate-100">
+                        <img 
+                          src={`https://picsum.photos/id/${event.img}/300/300`} 
+                          alt={event.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                          <span className="text-white font-bold text-sm">View Details</span>
+                        </div>
+                      </div>
+                      <h5 className="font-bold text-slate-900 mb-1">{event.title}</h5>
+                      <p className="text-sm text-teal-600 font-semibold mb-2">{event.date}</p>
+                      <p className="text-xs text-slate-600">{event.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <button className="mt-8 w-full py-4 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold rounded-2xl hover:shadow-lg transition-all magnetic-btn hover-lift button-pulse">
+                  View Full Calendar →
+                </button>
+              </div>
             </div>
           </div>
         </div>
